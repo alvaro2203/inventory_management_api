@@ -1,6 +1,6 @@
 from typing import Optional
 from pydantic import BaseModel, Field
-from models.stock_movements import MovementType
+from inventory_management.models.stock_movements import MovementType
 from datetime import datetime
 
 

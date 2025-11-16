@@ -13,5 +13,3 @@ class Product(SQLModel, table=True):
     category: Optional["Category"] = Relationship(back_populates="products") # type: ignore  # noqa: F821
     provider: Optional["Provider"] = Relationship(back_populates="products") # type: ignore  # noqa: F821
     stock_movements: List["StockMovement"] = Relationship(back_populates="product") # type: ignore  # noqa: F821
-
-

@@ -1,6 +1,5 @@
-from sqlalchemy import create_engine
+from sqlmodel import Session, create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 from contextlib import contextmanager
 import os
@@ -18,27 +17,19 @@ engine = create_engine(
     echo=False
 )
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
 Base = declarative_base()
 
 def get_db():
     """
         Create a DB session, use it and ensure to close it.
     """
-    db = SessionLocal()
-    try:
+    with Session(engine) as db: 
         yield db
-    finally:
-        db.close()
 
 @contextmanager
 def get_db_context():
     """
         Provides a DB session using the Context Manager pattern.
     """
-    db = SessionLocal()
-    try:
+    with Session(engine) as db: 
         yield db
-    finally:
-        db.close()

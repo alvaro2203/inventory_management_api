@@ -25,3 +25,7 @@ packages = [{include = "inventory_management", from = "src"}]
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+start = "uvicorn inventory_management.main:app --reload --host 127.0.0.1 --port 8000"

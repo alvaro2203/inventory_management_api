@@ -1,5 +1,8 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel, Field
+from inventory_management.schemas.category import CategoryRead
+from inventory_management.schemas.provider import ProviderRead
+from inventory_management.schemas.stock_movement import StockMovementRead
 
 class ProductBase(BaseModel):
     """
@@ -53,4 +56,16 @@ class ProductRead(ProductBase):
     }
 
 
-# TODO create class ProductReadDetailed with CategoryRead and ProviderRead
+class ProductReadDetailed(BaseModel):
+    id: int = Field(..., description="Database primary key.")
+
+    name: str = Field(
+        ..., 
+        min_length=2, 
+        max_length=80, 
+        description="Human-readable name of the product."
+    )
+
+    category: CategoryRead
+    provider: Optional[ProviderRead]
+    stock_movements: List[StockMovementRead] = []
