@@ -1,0 +1,74 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Paneles Solares"
+        },
+        {
+            "id": 2,
+            "name": "Inversores"
+        },
+        {
+            "id": 3,
+            "name": "Cableado"
+        }
+    ],
+    "providers": [
+        {
+            "id": 1,
+            "name": "SunPower Inc",
+            "contact_email": "contact@sunpower.com"
+        },
+        {
+            "id": 2,
+            "name": "GreenVolt SA",
+            "contact_email": "info@greenvolt.com"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Panel Solar 450W",
+            "category_id": 1,
+            "provider_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Inversor 5000W",
+            "category_id": 2,
+            "provider_id": 2
+        },
+        {
+            "id": 3,
+            "name": "Cable DC 4mm",
+            "category_id": 3,
+            "provider_id": null
+        }
+    ],
+    "stock_movements": [
+        {
+            "id": 1,
+            "product_id": 1,
+            "movement_type": "IN",
+            "quantity": 100
+        },
+        {
+            "id": 2,
+            "product_id": 1,
+            "movement_type": "OUT",
+            "quantity": 20
+        },
+        {
+            "id": 3,
+            "product_id": 2,
+            "movement_type": "IN",
+            "quantity": 50
+        },
+        {
+            "id": 4,
+            "product_id": 3,
+            "movement_type": "IN",
+            "quantity": 200
+        }
+    ]
+}
