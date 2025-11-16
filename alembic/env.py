@@ -6,6 +6,7 @@ from alembic import context
 
 import sys
 import os
+from dotenv import load_dotenv
 from sqlmodel import SQLModel
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -13,9 +14,18 @@ sys.path.insert(0, BASE_DIR)
 
 from inventory_management.models import Product, Category, Provider, StockMovement  # noqa: E402, F401
 
+load_dotenv()
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+
+db_url = os.environ.get("DB_URL")
+
+if db_url:
+    config.set_main_option("sqlalchemy.url", db_url)
+
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
